@@ -14,14 +14,15 @@ object PureExample extends App {
 
   /// TEST PURE:
   val resultOne = pureFunction("Andrzej")
-  val resultTwo = pureFunction("Andrzej")
+  pureFunction("Maciek")
+  pureFunction("Adam")
 
   val expectedResult = "My name is Andrzej"
 
   // result assert
   assert(resultOne === expectedResult)
   // Referential transparency assert
-  assert(resultOne === resultTwo)
+  assert(expectedResult === pureFunction("Andrzej"))
 
   // TEST IMPURE:
   val resultImpure: Unit = impureFunction("Andrzej")
