@@ -12,7 +12,7 @@ class PureTest extends FlatSpec with MustMatchers {
   //TODO: After you're done with implementation please change it to PureBankAccount
   def newBankAccount(): BankAccount = new DirtyBankAccount
 
-  "BankAccount implementation" should "be idempotent" in {
+  "BankAccount implementation" should "be immutable" in {
 
     val bankAccountWithNoMoney: BankAccount = newBankAccount()
 
@@ -24,7 +24,7 @@ class PureTest extends FlatSpec with MustMatchers {
     result.getState mustEqual 10
   }
 
-  it should ("work correctly") in {
+  it should ("work correctly when chaining") in {
 
     val bankAccount: BankAccount = newBankAccount()
     val bankAccountAfter =
@@ -40,7 +40,7 @@ class PureTest extends FlatSpec with MustMatchers {
     val zero: BankAccount = newBankAccount()
 
     val r1 = zero.addMoney(2).getState + zero.addMoney(1).getState
-    val r2 = 0 + 2 + 0 + 1
+    val r2 = 0 + 2                     + 0 + 1
 
     r1 mustEqual r2
   }
