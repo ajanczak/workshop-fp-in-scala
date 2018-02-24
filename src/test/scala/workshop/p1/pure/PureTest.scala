@@ -22,7 +22,6 @@ class PureTest extends FlatSpec with MustMatchers {
     val result: BankAccount = bankAccountWithNoMoney.addMoney(10)
 
     result.getState mustEqual 10
-
   }
 
   it should ("work correctly") in {
@@ -35,7 +34,6 @@ class PureTest extends FlatSpec with MustMatchers {
         .addMoney(3)
 
     bankAccountAfter.getState mustEqual 6
-
   }
 
   it should ("be referential transparent") in {

@@ -3,6 +3,9 @@ package workshop.p1.pure.examples
 
 import scala.concurrent.Future
 
+/**
+  * Extracting purity from programs.
+  */
 object HttpApiExample {
 
   // Just for workshop.example to look nice

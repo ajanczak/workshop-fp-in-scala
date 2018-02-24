@@ -2,7 +2,9 @@ package workshop.p1.pure.examples
 
 import org.scalatest.MustMatchers.convertToEqualizer
 
-
+/**
+  * Basic example of what pure function is.
+  */
 object PureExample extends App {
 
   // side effects free

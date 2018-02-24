@@ -1,7 +1,5 @@
 package workshop.p1.pure
 
-import workshop.p1.pure.solution.Solution
-
 
 /**
   * Wrong, impure implementation of BankAccount
