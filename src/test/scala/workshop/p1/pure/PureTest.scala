@@ -1,13 +1,13 @@
 package workshop.p1.pure
 
-import org.scalatest.{FlatSpec, MustMatchers}
+import org.scalatest.{FlatSpec, Matchers, MustMatchers}
 
 import scala.collection.immutable
 import scala.concurrent.duration._
 import scala.concurrent.{Await, Future}
 import scala.util.Random
 
-class PureTest extends FlatSpec with MustMatchers {
+class PureTest extends FlatSpec with Matchers {
 
   //TODO: After you're done with implementation please change it to PureBankAccount
   def newBankAccount(): BankAccount = new DirtyBankAccount
@@ -21,7 +21,7 @@ class PureTest extends FlatSpec with MustMatchers {
     bankAccountWithNoMoney.addMoney(10)
     val result: BankAccount = bankAccountWithNoMoney.addMoney(10)
 
-    result.getState mustEqual 10
+    result.getState shouldEqual 10
   }
 
   it should ("work correctly when chaining") in {
@@ -33,7 +33,7 @@ class PureTest extends FlatSpec with MustMatchers {
         .addMoney(2)
         .addMoney(3)
 
-    bankAccountAfter.getState mustEqual 6
+    bankAccountAfter.getState shouldEqual 6
   }
 
   it should ("be referential transparent") in {
@@ -42,7 +42,7 @@ class PureTest extends FlatSpec with MustMatchers {
     val r1 = zero.addMoney(2).getState + zero.addMoney(1).getState
     val r2 = 0 + 2                     + 0 + 1
 
-    r1 mustEqual r2
+    r1 shouldEqual r2
   }
 
   it should ("be thread safe") in {
@@ -64,7 +64,7 @@ class PureTest extends FlatSpec with MustMatchers {
     }
 
     bankAccounts.zipWithIndex.map {
-      case (ba, index) => ba.getState mustEqual index
+      case (ba, index) => ba.getState shouldEqual index
     }
   }
 
