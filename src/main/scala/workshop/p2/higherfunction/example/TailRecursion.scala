@@ -25,7 +25,7 @@ object TailRecursion extends App {
   val bigList = List.fill(n = 10000)(elem = 7)
 
   // THIS THROWS StackOverflowError
-  sumStackOverflow(bigList)
+  // sumStackOverflow(bigList)
 
 
   ///// vs /////

@@ -1,6 +1,6 @@
 package workshop.p1.pure
 
-import org.scalatest.{FlatSpec, Matchers, MustMatchers}
+import org.scalatest.{FlatSpec, Matchers}
 
 import scala.collection.immutable
 import scala.concurrent.duration._
