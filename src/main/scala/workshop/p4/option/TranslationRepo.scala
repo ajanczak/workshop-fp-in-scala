@@ -9,6 +9,7 @@ trait TranslationRepo {
 }
 
 // Singleton
+// DON'T MODIFY THIS
 object TranslationRepoMapImpl extends TranslationRepo {
 
   val db = Map(

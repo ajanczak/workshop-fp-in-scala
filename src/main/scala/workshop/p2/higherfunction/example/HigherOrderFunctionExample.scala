@@ -14,7 +14,7 @@ object HigherOrderFunctionExample extends App {
   val multiplyFun: Int => Int =
     (x: Int) => 2 * x
 
-  // mapper function
+  // mapper function, function should be pure Int=> Int, not Int=>Unit
   def mapper(list: List[Int], function: Int => Int): List[Int] = {
     for {
       element <- list

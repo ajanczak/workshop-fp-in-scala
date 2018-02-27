@@ -4,6 +4,7 @@ import java.io
 
 import cats.implicits._
 import workshop.hello.HeaderSupport
+import workshop.p6.either.BetterHelloServer.{NoTranslation, NoUserWithGivenToken, ServerError}
 
 import scala.util.Try
 
