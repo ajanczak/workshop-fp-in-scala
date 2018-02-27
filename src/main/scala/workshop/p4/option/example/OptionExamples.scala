@@ -17,7 +17,7 @@ object OptionExamples extends App with HeaderSupport {
   // Do it like this:
   println(Option(whatIsThis))
 
-  // Not like that !!! :
+  // NEVER like that !!! :
   println(Some(whatIsThis))
 
   val emptyOpt: Option[String] = Option(whatIsThis)
