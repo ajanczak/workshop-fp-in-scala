@@ -1,5 +1,7 @@
 package workshop.p2.higherfunction.example
 
+import org.scalatest.MustMatchers.convertToEqualizer
+
 import scala.annotation.tailrec
 import scala.collection.immutable
 
@@ -44,10 +46,22 @@ object TailRecursion extends App {
           loop(updatedAcc, tail)
       }
     }
-
     loop(zero, list)
   }
 
   assert(sumTailRec(list) == 15)
   sumTailRec(bigList)
+
+
+  /// LIST OPERATIONS:
+
+  val numbers = List(1, 2, 3)
+
+  // append element
+  assert(numbers.:+(4) == List(1, 2, 3, 4))
+  // prepend element
+  assert(numbers.+:(4) == List(4, 1, 2, 3))
+  // append lists
+  assert(numbers.++(List(4, 5)) == List(1, 2, 3, 4, 5))
+
 }

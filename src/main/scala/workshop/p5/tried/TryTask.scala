@@ -7,5 +7,5 @@ trait Retry {
 }
 
 object Retry extends Retry {
-  override def retry[T](times: Int)(body: => T): Try[T] = ???
+  override def retry[T](times: Int)(body: => T): Try[T] = ??? // Luke, use the force of tailrec !
 }

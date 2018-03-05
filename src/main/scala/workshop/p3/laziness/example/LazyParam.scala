@@ -5,7 +5,7 @@ object LazyParam extends App {
   println("START")
 
   // call by value
-  def strict(param: String): String = {
+  def strictFun(param: String): String = {
     println("strict body")
     param
   }
@@ -16,7 +16,7 @@ object LazyParam extends App {
     param // param initialization
   }
 
-  strict {
+  strictFun {
     println("strict eval")
     "strict value"
   }

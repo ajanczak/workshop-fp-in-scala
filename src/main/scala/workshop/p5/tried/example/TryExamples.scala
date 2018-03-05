@@ -22,9 +22,6 @@ object TryExamples extends App with HeaderSupport {
   }
   println(results)
 
-  val r = results.reduce( _.combine(_))
-  println(r)
-
   val r1: Try[Int] = for {
     x <- Try(1)
     y <- Try(2)
@@ -32,9 +29,15 @@ object TryExamples extends App with HeaderSupport {
     x + y
   }
 
+
+  // combine - works "kind of like" flatmap
   val r2: Try[Int] = Try(1) combine Try(2)
 
   assert(r1 == r2)
   println(r1, r2)
+
+
+  val r = results.reduce( _.combine(_))
+  println(r)
 
 }

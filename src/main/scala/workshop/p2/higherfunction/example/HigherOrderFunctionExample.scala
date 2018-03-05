@@ -33,9 +33,8 @@ object HigherOrderFunctionExample extends App {
 
   ////// ^this OR:  //// :
 
-  val r2 = numbers.map(_ * 2)
+  val r2 = numbers.map(multiplyByTwoFunction)
   assert(r2 == expected)
-
 
   ///// Curring /////
 
@@ -43,8 +42,9 @@ object HigherOrderFunctionExample extends App {
 
   val multiplyFunction: Int => Int => Int = multiplyMethod _
 
-  val multiplier: Int => Int => Int =  {
-    (x: Int) =>
+  val multiplier: Int => Int => Int = {
+    // function takes one parameter
+    (x: Int) => // and accepts
       (y: Int) =>  x * y
   }
   val multiplierV2: Int => (Int => Int) = (x) => (y) => x*y
@@ -55,8 +55,11 @@ object HigherOrderFunctionExample extends App {
   val m2 = multiplier(2)
   val m3 = multiplier(3)
 
-  val m6 = m2 compose m3
-  val m6v2 = m2 andThen m3
+  // first m3 then m2
+  val m6: Int => Int = m2 compose m3
+
+  // first m2 then m3
+  val m6v2: Int => Int = m2 andThen m3
 
   assert(m6(6) == 36)
   assert(m6v2(6) == 36)

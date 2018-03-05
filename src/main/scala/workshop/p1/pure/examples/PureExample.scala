@@ -16,6 +16,8 @@ object PureExample extends App {
 
   /// TEST PURE:
   val resultOne = pureFunction("Andrzej")
+
+  // future method call don't brake anything
   pureFunction("Maciek")
   pureFunction("Adam")
 
@@ -31,5 +33,15 @@ object PureExample extends App {
   // assert(resultImpure === ?????)
   // HOW ???
   // get somehow access to output buffer ?????!!!
+
+
+  // Program 1:
+  println("Program 1:")
+  impureFunction("Andrzej")
+
+  // Program 2:
+  println("Program 2:")
+  val result = pureFunction("Andrzej")
+  println(result)
 
 }
