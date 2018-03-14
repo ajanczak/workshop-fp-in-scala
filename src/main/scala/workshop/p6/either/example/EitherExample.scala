@@ -2,13 +2,15 @@ package workshop.p6.either.example
 
 import java.io
 
-import cats.implicits._
 import workshop.hello.HeaderSupport
 import workshop.p6.either.BetterHelloServer.{NoTranslation, NoUserWithGivenToken, ServerError}
 
 import scala.util.Try
 
 object EitherExample extends App with HeaderSupport {
+
+  // extends scala std Either
+  import cats.implicits._
 
   val r = for {
     x <- Either.right(1)
@@ -27,10 +29,10 @@ object EitherExample extends App with HeaderSupport {
   }
   println(r2)
 
-  header("Transforming")
+  header("Transforming Option/Try -> Either")
 
   val opt: Option[Int] = None
-  val tried: Try[Int] = Try{throw new Exception ;2 }
+  val tried: Try[Int] = Try{ throw new Exception ;2 }
   val eitherFromOpt: Either[String, Int] = Either.fromOption(opt, "EmptyError")
   val eitherFromTry: Either[Throwable, Int] = Either.fromTry(tried)
 

@@ -19,6 +19,8 @@ object OptionExamples extends App with HeaderSupport {
 
   // NEVER like that !!! :
   println(Some(whatIsThis))
+  // why ?:
+  println(Some(null))
 
   val emptyOpt: Option[String] = Option(whatIsThis)
 
@@ -26,7 +28,7 @@ object OptionExamples extends App with HeaderSupport {
     emptyOpt.get
   })
   println(emptyOpt.getOrElse("DE"))
-  println(emptyOpt.map("this language is: "+ _ ))
+  println(emptyOpt.map("this language is: " + _))
 
   ////// Some case //////////
   header("SOME")
@@ -56,13 +58,13 @@ object OptionExamples extends App with HeaderSupport {
 
   header("FOR COMPREHENSION")
 
-  val r = for {
+  val result = for {
     langCode <- langOpt
     country <- getCountryName(langCode)
   } yield {
     country
   }
-  println(r)
+  println(result)
 
   val sum = for {
     x <- Some(3)
@@ -74,4 +76,6 @@ object OptionExamples extends App with HeaderSupport {
   println(sum)
 
   header("PATTERN MATCHING")
+
+
 }

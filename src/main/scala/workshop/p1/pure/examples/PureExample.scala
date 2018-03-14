@@ -15,18 +15,21 @@ object PureExample extends App {
 
 
   /// TEST PURE:
-  val resultOne = pureFunction("Andrzej")
+  val expectedResult = "My name is Andrzej"
 
   // future method call don't brake anything
   pureFunction("Maciek")
   pureFunction("Adam")
 
-  val expectedResult = "My name is Andrzej"
+  val resultOne = pureFunction("Andrzej")
 
   // result assert
   assert(resultOne === expectedResult)
+
   // Referential transparency assert
-  assert(expectedResult === pureFunction("Andrzej"))
+  assert("My name is Andrzej" === "My name is Andrzej")
+  assert(pureFunction("Andrzej") === "My name is Andrzej")
+  assert("My name is Andrzej" === pureFunction("Andrzej"))
 
   // TEST IMPURE:
   val resultImpure: Unit = impureFunction("Andrzej")
@@ -41,7 +44,7 @@ object PureExample extends App {
 
   // Program 2:
   println("Program 2:")
-  val result = pureFunction("Andrzej")
+  val result: String = pureFunction("Andrzej")
   println(result)
 
 }

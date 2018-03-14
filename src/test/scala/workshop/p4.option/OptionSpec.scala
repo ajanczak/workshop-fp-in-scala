@@ -7,7 +7,7 @@ class OptionSpec extends FlatSpec with Matchers {
 
   "HelloServer" should "return correct values" in {
 
-    import UserRepoMapImpl._
+    import UserDB._
 
     HelloServer.welcomeUserPage(user1.token) shouldEqual "Hello"
     HelloServer.welcomeUserPage(user2.token) shouldEqual "Ciao"

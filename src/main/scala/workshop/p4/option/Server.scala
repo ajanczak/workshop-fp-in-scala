@@ -8,7 +8,9 @@ trait Server {
   val helloMsgCode = "_hello_"
 
   // TODO implement this
-  def welcomeUserPage(userToken: String): String = ???
+  def welcomeUserPage(userToken: String): String = {
+    ???
+  }
 }
 
 object HelloServer extends Server {

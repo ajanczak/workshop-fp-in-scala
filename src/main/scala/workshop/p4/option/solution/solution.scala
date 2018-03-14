@@ -2,8 +2,7 @@ package workshop.p4.option.solution
 
 import java.util.Locale
 
-import workshop.p4.option.UserRepoMapImpl.useres
-import workshop.p4.option.{TranslationKey, TranslationRepo, UserRepo}
+import workshop.p4.option.{TranslationKey, TranslationRepo, UserDB, UserRepo}
 
 private object solution {
 
@@ -30,9 +29,8 @@ private object solution {
     }
   }
 
-
   def getUserLocaleById(id: Int): Option[Locale] = {
-    useres
+    UserDB.getAll
       .find(_.id == id)
       .map(_.locale)
   }

@@ -8,8 +8,9 @@ trait TranslationRepo {
   def findByKey(key: TranslationKey): Option[String]
 }
 
-// Singleton
-// DON'T MODIFY THIS
+/**
+  * DON'T MODIFY THIS
+  */
 object TranslationRepoMapImpl extends TranslationRepo {
 
   val db = Map(
