@@ -11,12 +11,12 @@ Andrzej Janczak
 
 ## Requirements
 
+- java >1.8 (https://java.com/pl/download/)
 - sbt > 1.X (https://www.scala-sbt.org/download.html)
 - scala > 2.12.X (https://www.scala-lang.org/download/)
-- java >1.8 (https://java.com/pl/download/)
 
 #### Optional
-- I recomend to use Intellij with scala plugin installed (presenter will use this IDE)
+- I recomend to use Intellij (Community Edition) with scala plugin installed (presenter will use this IDE)
 - https://www.jetbrains.com/idea/download/
 - but working with editor + compiler is also ok
 
