@@ -21,7 +21,7 @@ object UserRepoMapImpl extends UserRepo {
   override def getUserLocaleById(id: Int): Option[Locale] = ???
 
   /**
-    * Please don't modify this method. It's example of unreliable interface.
+    * Please don't modify this method. It's an example of unreliable interface.
     * Can return null !
     */
   @Nullable
@@ -38,6 +38,9 @@ object UserRepoMapImpl extends UserRepo {
   }
 }
 
+/**
+  * Don't modify this object
+  */
 object UserDB {
 
   case class User(id: Int, token: String, locale: Locale)
