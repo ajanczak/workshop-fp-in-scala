@@ -3,11 +3,9 @@ package workshop.p7.transformer.example
 import cats.data.EitherT
 import cats.implicits._
 import workshop.hello.HeaderSupport
-import workshop.p7.transformer.example.OptionTExample.r5
 
 import scala.concurrent.duration._
 import scala.concurrent.{Await, Future}
-import scala.util.Try
 
 object EitherTExample extends App with HeaderSupport {
 

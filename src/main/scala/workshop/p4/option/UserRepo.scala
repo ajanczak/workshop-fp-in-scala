@@ -16,9 +16,16 @@ trait UserRepo {
 
 object UserRepoMapImpl extends UserRepo {
 
-
-  // TODO: implement this
-  override def getUserLocaleById(id: Int): Option[Locale] = ???
+  // TODO: Fix this
+  override def getUserLocaleById(id: Int): Option[Locale] = {
+    Option {
+      UserDB
+        .getAll
+        .find(_.id == id)
+        .get
+        .locale
+    }
+  }
 
   /**
     * Please don't modify this method. It's an example of unreliable interface.
