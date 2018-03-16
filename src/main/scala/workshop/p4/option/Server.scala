@@ -7,9 +7,12 @@ trait Server {
   val DefaultFallback = "No Translation OR user not in db"
   val helloMsgCode = "_hello_"
 
-  // TODO implement this
+  // TODO: Change this imperfect implementation !
   def welcomeUserPage(userToken: String): String = {
-    ???
+    val userId = userRepo.getUserIdByToken(userToken)
+    val locale = userRepo.getUserLocaleById(userId).get
+    val tk = TranslationKey(locale, helloMsgCode)
+    translationRepo.findByKey(tk).get
   }
 }
 

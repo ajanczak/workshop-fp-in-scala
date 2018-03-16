@@ -1,24 +1,24 @@
-package workshop.p4.option
+package workshop.p7.transformer
 
 import java.util.Locale
+
+import scala.concurrent.Future
 
 case class TranslationKey(locale: Locale, msgCode: String)
 
 trait TranslationRepo {
-  def findByKey(key: TranslationKey): Option[String]
+  def findByKey(key: TranslationKey): Future[Option[String]]
 }
 
-/**
-  * DON'T MODIFY THIS
-  */
+// Singleton
 object TranslationRepoMapImpl extends TranslationRepo {
 
-  private val db = Map(
+  val db = Map(
     TranslationKey(Locale.ENGLISH, "_hello_") -> "Hello",
     TranslationKey(Locale.ITALIAN, "_hello_") -> "Ciao"
   )
 
-  override def findByKey(key: TranslationKey): Option[String] = {
-    db.get(key)
+  override def findByKey(key: TranslationKey): Future[Option[String]] = {
+    Future.successful(db.get(key))
   }
 }

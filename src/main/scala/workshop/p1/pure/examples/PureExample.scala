@@ -7,11 +7,11 @@ import org.scalatest.MustMatchers.convertToEqualizer
   */
 object PureExample extends App {
 
-  // side effects free
-  def pureFunction(name: String): String = s"My name is $name"
-
   // side effects
   def impureFunction(name: String): Unit = println(s"My name is $name")
+
+  // side effects free
+  def pureFunction(name: String): String = s"My name is $name"
 
 
   /// TEST PURE:

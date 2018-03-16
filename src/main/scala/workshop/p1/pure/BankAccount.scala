@@ -5,5 +5,4 @@ trait BankAccount {
   def addMoney(amount: Int): BankAccount
 
   def getState: Int
-
 }

@@ -10,8 +10,8 @@ object ListExample {
   )
 
   def getNameById(id: Int): Option[String] = {
-    val userOpt = db.find(user => user.id == id)
-    val nameOpt = userOpt.map(_.name)
+    val userOpt: Option[User] = db.find(user => user.id == id)
+    val nameOpt: Option[String] = userOpt.map(_.name)
     nameOpt
   }
 }

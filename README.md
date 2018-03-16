@@ -1,5 +1,4 @@
 # Effective functional Programming
-
 Andrzej Janczak
 
 ## Setup and self-check:
@@ -16,9 +15,15 @@ Andrzej Janczak
 - scala > 2.12.X (https://www.scala-lang.org/download/)
 - java >1.8 (https://java.com/pl/download/)
 
-### Optional
-
+#### Optional
 - I recomend to use Intellij with scala plugin installed (presenter will use this IDE)
 - https://www.jetbrains.com/idea/download/
 - but working with editor + compiler is also ok
+
+
+## What's next?
+
+- https://www.coursera.org/specializations/scala
+- https://www.scala-exercises.org/
+- https://www.manning.com/books/functional-programming-in-scala
 

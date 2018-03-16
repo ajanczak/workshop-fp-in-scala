@@ -14,6 +14,8 @@ object OptionExamples extends App with HeaderSupport {
 
   val whatIsThis: String = getLanguage("Me gusto !")
 
+  println("This is:"+whatIsThis)
+
   // Do it like this:
   println(Option(whatIsThis))
 
@@ -22,7 +24,8 @@ object OptionExamples extends App with HeaderSupport {
   // why ?:
   println(Some(null))
 
-  val emptyOpt: Option[String] = Option(whatIsThis)
+  // Putting value into the "box"
+  val emptyOpt: Option[String] = Option.apply(whatIsThis)
 
   println(Try {
     emptyOpt.get
@@ -30,7 +33,7 @@ object OptionExamples extends App with HeaderSupport {
   println(emptyOpt.getOrElse("DE"))
   println(emptyOpt.map("this language is: " + _))
 
-  ////// Some case //////////
+
   header("SOME")
 
   val langOpt: Option[String] = Option(getLanguage("opcja"))
@@ -40,7 +43,14 @@ object OptionExamples extends App with HeaderSupport {
   println(langOpt.getOrElse("DE"))
   println(langOpt.map("this language is: "+ _ ))
 
-  ////// Flat Map //////
+
+  header("PATTERN MATCHING")
+  langOpt match {
+    case Some(value) => println(s"There is some value here: $value")
+    case None => println("I have None")
+  }
+
+  ////// Map / Flat Map //////
   header("FLAT MAP")
 
   def getCountryName(code: String): Option[String] = {
@@ -52,6 +62,7 @@ object OptionExamples extends App with HeaderSupport {
   }
   val doubleOpt: Option[Option[String]] = langOpt.map(code => getCountryName(code))
   println(doubleOpt)
+  println(doubleOpt.flatten)
 
   val countryOpt = langOpt.flatMap(code => getCountryName(code))
   println(countryOpt)
@@ -74,8 +85,5 @@ object OptionExamples extends App with HeaderSupport {
     x + y + z
   }
   println(sum)
-
-  header("PATTERN MATCHING")
-
 
 }

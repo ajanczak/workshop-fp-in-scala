@@ -1,17 +1,14 @@
-package workshop.p6.either
+package workshop.p7.transformer
 
 import java.util.Locale
 
-import com.sun.istack.internal.Nullable
+import scala.concurrent.Future
 
 trait UserRepo {
 
-  // CAUTION: can return null
-  @Nullable
-  def getUserIdByToken(token: String): Integer
+  def getUserIdByToken(token: String): Future[Option[Int]]
 
-  @throws[Exception]
-  def getUserLocaleById(id: Int): Locale
+  def getUserLocaleById(id: Int): Future[Option[Locale]]
 }
 
 object UserRepoMapImpl extends UserRepo {
@@ -30,24 +27,20 @@ object UserRepoMapImpl extends UserRepo {
     * Please don't modify this method. It's example of unreliable interface.
     * Can return null !
     */
-  @Nullable
-  override def getUserIdByToken(token: String): Integer = {
+  override def getUserIdByToken(token: String): Future[Option[Int]] = {
     val idOpt =
       useres
         .find(_.token == token)
         .map(_.id)
-
-    if (idOpt.isDefined)
-      return idOpt.get
-    else
-      return null
+    Future.successful(idOpt)
   }
 
-  @throws[Exception]
-  override def getUserLocaleById(id: Int): Locale = {
-    useres
+  override def getUserLocaleById(id: Int): Future[Option[Locale]] = {
+    val localeOpt = useres
       .filter(_.id > 0) // simulate corrupted data
-      .find(_.id == id).get.locale
+      .find(_.id == id)
+      .map(_.locale)
+    Future.successful(localeOpt)
   }
 
 }

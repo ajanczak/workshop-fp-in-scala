@@ -18,14 +18,14 @@ private object solution {
 
       val idOpt: Option[Integer] = Option(userRepo.getUserIdByToken(userToken))
 
-      val r = for {
+      val translationOpt = for {
         userId <- idOpt
         locale <- userRepo.getUserLocaleById(userId)
         msg <- translationRepo.findByKey(TranslationKey(locale, helloMsgCode))
       } yield {
         msg
       }
-      r.getOrElse(Default)
+      translationOpt.getOrElse(Default)
     }
   }
 
